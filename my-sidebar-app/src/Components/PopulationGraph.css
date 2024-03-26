@@ -1,0 +1,25 @@
+/* Container for the population graph */
+.graph-container {
+  transition: margin-left 0.5s;
+  padding: 20px;
+  /* Adjust the width to account for sidebar + some padding */
+  margin-left: 500px; /* This should match the expanded sidebar width */
+}
+
+/* When the sidebar is collapsed, adjust the margin accordingly */
+.sidebar-collapsed .graph-container {
+  margin-left: 100px; /* This should match the collapsed sidebar width */
+}
+
+/* Additional styling for the graph itself */
+.graph-container canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .graph-container {
+    margin-left: 0; /* Full width on smaller screens */
+  }
+}

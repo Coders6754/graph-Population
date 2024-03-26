@@ -1,0 +1,59 @@
+.sidebar {
+  height: 100vh;
+  background-color: #f0f0f0;
+  position: fixed;
+  width: 50px; /* Initial collapsed width */
+  transition: width 0.5s;
+  overflow: hidden;
+}
+
+.sidebar.expanded {
+  width: 250px; /* Expanded width */
+}
+
+.sidebar-toggle {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  padding: 5px;
+  border: none;
+}
+
+.search-icon {
+  margin-left: 10px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.nav-item.gap {
+  margin-top: 20px;
+}
+
+.nav-text {
+  margin-left: 15px;
+  display: none; /* Initially hide text */
+}
+
+.sidebar.expanded .nav-text {
+  display: inline; /* Show text when sidebar is expanded */
+}
+
+.active {
+  background-color: lightgray;
+}
+
+/* Additional styles for the active state, icons, etc., can be added as needed */

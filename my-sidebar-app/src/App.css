@@ -1,0 +1,16 @@
+/* App.css */
+.App {
+  display: flex;
+  background-color: rgb(239, 212, 212);
+}
+
+.content {
+  transition: margin-left 0.4s; /* Smooth transition for the margin */
+  margin-left: 200px; /* Adjust based on your sidebar width */
+}
+
+.expanded-content {
+  margin-left: 50px; /* Adjust based on your collapsed sidebar width */
+}
+
+
