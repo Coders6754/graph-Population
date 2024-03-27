@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import axios from 'axios';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import './PopulationGraph.css';
 
-// Register the components we will be using
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -13,65 +21,107 @@ ChartJS.register(
   Legend
 );
 
-function PopulationGraph() {
+const PopulationGraph = () => {
   const [populationData, setPopulationData] = useState({
     labels: [],
-    datasets: [{
-      label: 'Population',
-      data: [],
-      backgroundColor: 'red',
-      borderColor: 'rgba(75, 192, 192, 1)',
-      borderWidth: 1,
-    }],
+    datasets: [
+      {
+        label: 'Population',
+        data: [],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Light blue
+        borderColor: 'rgba(54, 162, 235, 1)', // Darker blue
+        borderWidth: 1,
+      },
+    ],
   });
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get('https://datausa.io/api/data?drilldowns=Nation&measures=Population');
-      const labels = response.data.data.map(data => data.Nation);
-      const data = response.data.data.map(data => data.Population);
+      try {
+        const result = await axios('https://datausa.io/api/data?drilldowns=Nation&measures=Population');
+        const data = result.data.data;
+        const labels = data.map(item => item.Nation);
+        const populationValues = data.map(item => item.Population);
+        // Generate random colors for each bar
+        const backgroundColors = data.map(() => 'rgba(0, 0, 139, 0.2)');
+        const borderColors = data.map(() => 'rgba(255, 165, 0, 1)');
 
-      setPopulationData({
-        labels: labels,
-        datasets: [{
-          label: 'Population',
-          data: data,
-          backgroundColor: 'grey',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
-        }],
-      });
+        setPopulationData({
+          labels: labels,
+          datasets: [
+            {
+              label: 'Population',
+              data: populationValues,
+              backgroundColor: backgroundColors,
+              borderColor: borderColors,
+              borderWidth: 1,
+            },
+          ],
+        });
+      } catch (error) {
+        console.error('Error fetching population data:', error);
+      }
     };
 
     fetchData();
   }, []);
 
+
   return (
-    <Bar
-      data={populationData}
-      options={{
-        plugins: {
-          title: {
-            display: true,
-            text: 'Population Data',
-            fontSize: 20,
-          },
-          legend: {
-            display: true,
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: { // defining it as a category axis
-            type: 'category',
-          },
-          y: { // defining it as a linear axis
-            type: 'linear',
-          },
-        },
-      }}
-    />
+    <div className="graph-container">
+      <div className="canvas-container">
+        <Bar
+          data={populationData}
+          options={{
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Population',
+                  color: '#00ff00',
+                },
+                ticks: {
+                  color: '#00ff00',
+                },
+                grid: {
+                  color: 'rgba(255, 255, 255, 0.1)', // Light white grid lines for visibility
+                  display: true, // Ensure grid lines are displayed
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Nation',
+                  color: '#00ff00',
+                },
+                ticks: {
+                  color: '#00ff00',
+                },
+                grid: {
+                  color: 'rgba(255, 255, 255, 0.1)', // Light white grid lines for visibility
+                  display: true, // Ensure grid lines are displayed
+                }
+              },
+            },
+            plugins: {
+              legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                  color: 'yellow',
+                }
+              },
+            },
+          }}
+
+
+        />
+      </div>
+    </div>
   );
-}
+
+
+};
 
 export default PopulationGraph;

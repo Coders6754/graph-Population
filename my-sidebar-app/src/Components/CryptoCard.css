@@ -1,0 +1,70 @@
+.crypto-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 0; /* Added padding around the cards for better spacing */
+}
+
+.crypto-card {
+  background-color: #2d2b2b; /* Bright background for the card */
+  border-radius: 15px; /* Soft rounded corners for a modern look */
+  padding: 20px;
+  margin-top: 10px;
+  box-shadow: 0 8px 16px 0 rgba(61, 60, 60, 0.2); /* Smooth shadow for depth */
+  width: 250px;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.crypto-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for a "lifting" effect */
+}
+
+.crypto-name {
+  margin: 0 0 10px 0; /* Adjust bottom margin for spacing */
+  font-size: 1.5rem; /* Larger font size for emphasis */
+  font-weight: bold; /* Bold for importance */
+  color: #f1efef; /* Dark color for contrast */
+}
+
+.crypto-price {
+  margin: 0; /* Adjusted margin */
+  font-size: 1.4rem; /* Slightly larger font size for visibility */
+  color: #00ff00; /* Standout color for price */
+}
+
+.tooltip {
+  margin-top: 10px; /* Space between price and tooltip */
+  display: inline-block;
+  position: relative;
+  cursor: help; /* Indicates that more info is available */
+  color: #7e7b7b; /* Changed to light white */
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 140px; /* Width of the tooltip */
+  background-color: #626060; /* Dark background for contrast */
+  color: #fff; /* White text for readability */
+  text-align: center;
+  border-radius: 6px; /* Rounded corners for the tooltip */
+  padding: 5px 0; /* Padding for spacing */
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -70px; /* Centers the tooltip */
+
+  /* Fade in animation */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1; /* Show tooltip on hover */
+}

@@ -1,16 +1,39 @@
 /* App.css */
-.App {
+.app-container {
   display: flex;
-  background-color: rgb(239, 212, 212);
+  flex-direction: row; /* Explicitly define flex direction */
+  min-height: 100vh; /* Minimum height to take up at least the viewport height */
+  background-color: rgb(15, 6, 6);
 }
 
-.content {
-  transition: margin-left 0.4s; /* Smooth transition for the margin */
-  margin-left: 200px; /* Adjust based on your sidebar width */
+.sidebar-collapsed .main-content,
+.sidebar-expanded .main-content {
+  transition: margin-left 0.5s; /* Smooth transition */
 }
 
-.expanded-content {
-  margin-left: 50px; /* Adjust based on your collapsed sidebar width */
+/* Adjust this width according to your sidebar's collapsed width */
+.sidebar-collapsed .main-content {
+  margin-left: 50px;
 }
 
+/* Adjust this width according to your sidebar's expanded width */
+.sidebar-expanded .main-content {
+  margin-left: 250px;
+}
 
+.traders-text {
+  background: linear-gradient(to right, rgb(228, 172, 51), rgb(58, 241, 58));
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline;
+}
+.white-text {
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 21px; /* Change to your preferred font size */
+  /* font-weight: bold; */
+}
+
+.spot-trading-text {
+  color: rgb(25, 190, 25);
+}

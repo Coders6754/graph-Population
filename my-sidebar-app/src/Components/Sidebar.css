@@ -1,14 +1,12 @@
 .sidebar {
-  height: 100vh;
-  background-color: #f0f0f0;
-  position: fixed;
+  background-color: #2f2f2fb1;
   width: 50px; /* Initial collapsed width */
   transition: width 0.5s;
-  overflow: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .sidebar.expanded {
-  width: 250px; /* Expanded width */
+  width: 250px !important;
 }
 
 .sidebar-toggle {
@@ -20,16 +18,24 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  margin-bottom: 50px;
 }
 
 .search-bar input {
   flex-grow: 1;
-  padding: 5px;
-  border: none;
+  padding: 2px;
+  border: 2px solid rgb(109, 103, 103);
+}
+.hamburger-icon {
+  color: white; /* Change to your preferred color */
 }
 
 .search-icon {
   margin-left: 10px;
+  color: white;
+}
+.search-icon:hover {
+  cursor: pointer;
 }
 
 .nav-item {
@@ -37,15 +43,18 @@
   align-items: center;
   padding: 10px;
   cursor: pointer;
+  margin-bottom: 11px;
+  color: aliceblue;
 }
 
 .nav-item.gap {
-  margin-top: 20px;
+  margin-top: 100px;
 }
 
 .nav-text {
   margin-left: 15px;
   display: none; /* Initially hide text */
+  font-size: 18px; /* Adjusted font size */
 }
 
 .sidebar.expanded .nav-text {
@@ -53,7 +62,10 @@
 }
 
 .active {
-  background-color: lightgray;
+  color: #00ff00; /* Green font color */
+  background-color: transparent; /* Remove grey background */
 }
 
-/* Additional styles for the active state, icons, etc., can be added as needed */
+.nav-item:last-child {
+  margin-bottom: 0;
+}

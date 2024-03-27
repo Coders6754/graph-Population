@@ -1,0 +1,65 @@
+/* ConnectWallet.css */
+
+.connect-wallet-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #2d2b2b; /* Light gray background for the container */
+  border-radius: 5px; /* Rounded corners for the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 400px; /* Max width for better appearance on wide screens */
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.notification-message {
+  position: fixed;
+  top: 20px; /* Changed from 'bottom' to 'top' */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above other content */
+  text-align: center;
+  width: auto; /* Adjust width as necessary */
+  max-width: 80%; /* Prevent the notification from being too wide on large screens */
+}
+
+.connect-wallet-btn {
+  background-color: #4caf50; /* Green background */
+  color: rgb(255, 255, 255); /* White text for better contrast */
+  padding: 19px 10px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+  width: 100%; /* Make the button full width */
+  box-sizing: border-box; /* Ensure padding does not affect the final width */
+}
+
+.connect-wallet-btn:hover {
+  background-color: #45a049; /* Darker shade of green */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.connected-account {
+  color: #078001; /* Red color for the account info */
+  margin-top: 20px;
+  font-size: 16px;
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for better spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Ensure padding does not affect the final width */
+  text-align: center; /* Center align the text */
+}

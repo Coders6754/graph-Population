@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaHome, FaBuilding, FaDollarSign, FaCoins, FaHistory, FaWallet, FaBell, FaHeadset, FaCog, FaSearch } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
-import './Sidebar.css'; // Make sure to create this CSS file in your project
+import './Sidebar.css';
 
 // Sidebar navigation items array
 const SidebarNavItems = [
@@ -17,14 +17,20 @@ const SidebarNavItems = [
 ];
 
 function Sidebar() {
-  const [sidebarOpen, setSidebarOpen] = useState(false); // Start with the sidebar collapsed
+
   const [activeItem, setActiveItem] = useState('Home');
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsExpanded(!isExpanded);
+  };
+
 
   return (
     <IconContext.Provider value={{ className: 'react-icons', style: { fontSize: '24px' } }}>
-      <div className={`sidebar ${sidebarOpen ? 'expanded' : 'collapsed'}`}>
-        <div className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
-          <FaBars />
+      <div className={`sidebar ${isExpanded ? 'expanded' : 'collapsed'}`}>
+        <div className="sidebar-toggle" onClick={toggleSidebar}>
+          <FaBars className="hamburger-icon" />
         </div>
         <div className="search-bar">
           <input type="text" placeholder="Search..." />
@@ -40,6 +46,7 @@ function Sidebar() {
             <span className="nav-text">{item.name}</span>
           </div>
         ))}
+
       </div>
     </IconContext.Provider>
   );
