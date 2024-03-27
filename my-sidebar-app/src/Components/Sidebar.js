@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars, FaHome, FaBuilding, FaDollarSign, FaCoins, FaHistory, FaWallet, FaBell, FaHeadset, FaCog, FaSearch } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import './Sidebar.css';
@@ -19,7 +19,29 @@ const SidebarNavItems = [
 function Sidebar() {
 
   const [activeItem, setActiveItem] = useState('Home');
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(window.innerWidth > 768);
+
+
+
+  useEffect(() => {
+    function handleResize() {
+      // Automatically collapse sidebar on smaller screens
+      if (window.innerWidth <= 768) {
+        setIsExpanded(false);
+      } else {
+        setIsExpanded(true);
+      }
+    }
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Call the function to set initial state based on current window size
+    handleResize();
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);

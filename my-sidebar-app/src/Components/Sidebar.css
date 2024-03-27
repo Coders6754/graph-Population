@@ -70,3 +70,17 @@
 .nav-item:last-child {
   margin-bottom: 0;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 50px !important; /* Ensures sidebar is collapsed */
+  }
+
+  .sidebar.expanded {
+    width: 50px !important; /* Keeps sidebar collapsed even if expanded state is true */
+  }
+
+  .nav-text {
+    display: none; /* Ensures text is hidden to only show icons */
+  }
+}
