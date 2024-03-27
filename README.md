@@ -67,7 +67,7 @@ This documentation serves as a comprehensive guide for the web development proje
 - **Compatibility:** Demonstrates compatibility across modern browsers and the MetaMask extension.
 
 Submission Guidelines
-Hosted Link:
+Hosted Link: https://graph-population.vercel.app/
 
 <hr/>
 
