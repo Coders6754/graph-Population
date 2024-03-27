@@ -38,7 +38,7 @@ function Sidebar() {
 
     // Call the function to set initial state based on current window size
     handleResize();
-
+    
     // Cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
