@@ -11,6 +11,13 @@
   transition: margin-left 0.5s; /* Smooth transition */
 }
 
+.currency-heading {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
 /* Adjust this width according to your sidebar's collapsed width */
 .sidebar-collapsed .main-content {
   margin-left: 50px;

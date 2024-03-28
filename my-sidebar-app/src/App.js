@@ -16,6 +16,7 @@ function App() {
         <h3><span className="white-text">Welcome to</span> <span className="spot-trading-text welcome-text">Spot Trading !</span></h3>
 
         <PopulationGraph />
+        <h3 className="currency-heading">Current Bitcoin Price Index in Major Currencies</h3>
         <CryptoCard />
         <ConnectWallet />
       </div>
