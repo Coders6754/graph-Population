@@ -42,7 +42,7 @@ const PopulationGraph = () => {
       try {
         const result = await axios('https://datausa.io/api/data?drilldowns=Nation&measures=Population');
         const data = result.data.data;
-        const labels = data.map(item => `${item.Nation} (${item.Year})`);
+        const labels = data.map(item => `(${item.Year})`);
         const populationValues = data.map(item => item.Population);
 
         setPopulationData({
@@ -78,6 +78,7 @@ const PopulationGraph = () => {
 
   return (
     <div className="graph-container">
+      <h2 className="graph-heading">Annual Population Estimates of the United States: 2013 - 2021</h2>
       <div className="canvas-container">
         <Bar
           data={populationData}
