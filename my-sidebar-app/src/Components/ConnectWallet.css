@@ -1,16 +1,24 @@
 /* ConnectWallet.css */
 
+.image-logo img {
+  max-width: 100%; /* Ensure the image does not exceed the container's width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Treat the image as a block-level element */
+  margin: 0 auto; /* Center the image horizontally */
+  padding: 20px 0; /* Add some vertical padding around the image */
+}
+
 .connect-wallet-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background-color: #2d2b2b; /* Light gray background for the container */
-  border-radius: 5px; /* Rounded corners for the container */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #2d2b2b; /* Existing styles */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px; /* Max width for better appearance on wide screens */
+  max-width: 400px; /* Existing styles */
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -18,18 +26,17 @@
 
 .notification-message {
   position: fixed;
-  top: 20px; /* Changed from 'bottom' to 'top' */
   left: 50%;
   transform: translateX(-50%);
-  background-color: #4caf50; /* Green background */
+  background-color: #1bcf21; /* Green background */
   color: white; /* White text */
   padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(70, 36, 36, 0.2);
   z-index: 1000; /* Ensure it appears above other content */
   text-align: center;
-  width: auto; /* Adjust width as necessary */
-  max-width: 80%; /* Prevent the notification from being too wide on large screens */
+  width: 40px; /* Adjust width as necessary */
+  max-width: 50%; /* Prevent the notification from being too wide on large screens */
 }
 
 .connect-wallet-btn {
@@ -62,4 +69,10 @@
   width: 100%; /* Full width */
   box-sizing: border-box; /* Ensure padding does not affect the final width */
   text-align: center; /* Center align the text */
+}
+
+.connect-wallet-btn:disabled {
+  background-color: #a9a9a9; /* Grayed out background */
+  cursor: not-allowed; /* Show the not-allowed cursor */
+  opacity: 0.7; /* Slightly transparent to indicate it's disabled */
 }
