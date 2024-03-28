@@ -1,11 +1,11 @@
 /* ConnectWallet.css */
 
 .image-logo img {
-  max-width: 100%; /* Ensure the image does not exceed the container's width */
+  max-width: 50%; /* Ensure the image does not exceed the container's width */
   height: auto; /* Maintain aspect ratio */
   display: block; /* Treat the image as a block-level element */
   margin: 0 auto; /* Center the image horizontally */
-  padding: 20px 0; /* Add some vertical padding around the image */
+  padding: 10px 0; /* Add some vertical padding around the image */
 }
 
 .connect-wallet-container {
