@@ -28,7 +28,8 @@
   border: 2px solid rgb(109, 103, 103);
 }
 .hamburger-icon {
-  color: white; /* Change to your preferred color */
+  color: white;
+  z-index: 2;
 }
 
 .search-icon {
@@ -71,16 +72,19 @@
   margin-bottom: 0;
 }
 
-@media (max-width: 768px) {
+.sidebar-toggle {
+  padding: 10px;
+  cursor: pointer;
+  z-index: 3; /* Ensures visibility */
+}
+
+@media (max-width: 500px) {
+  .sidebar-toggle {
+    position: relative; /* or 'fixed' depending on desired behavior */
+    z-index: 3; /* Ensures visibility above other sidebar content */
+  }
   .sidebar {
-    width: 50px !important; /* Ensures sidebar is collapsed */
-  }
-
-  .sidebar.expanded {
-    width: 50px !important; /* Keeps sidebar collapsed even if expanded state is true */
-  }
-
-  .nav-text {
-    display: none; /* Ensures text is hidden to only show icons */
+    position: fixed; /* or 'relative' depending on your layout */
+    z-index: 2; /* Ensures the sidebar content doesn't overlap the toggle */
   }
 }

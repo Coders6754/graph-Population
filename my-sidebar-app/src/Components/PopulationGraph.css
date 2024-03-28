@@ -1,12 +1,13 @@
 /* PopulationGraph.css */
+
 .graph-container {
   display: flex;
+  flex-direction: column; /* Display children vertically */
   justify-content: center;
   align-items: center;
   padding: 20px;
   border-radius: 10px; /* Rounded corners for the graph container */
   background-color: #2d2b2b;
-  
 }
 
 .canvas-container {
@@ -15,14 +16,19 @@
   height: 450px; /* You can adjust the height as necessary */
 }
 
+.source-info {
+  margin-top: 20px; /* Add some space between graph and source info */
+  text-align: left; /* Align text to the left */
+  color: #ffffff; /* Text color */
+}
+
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .graph-container {
-    flex-direction: column;
-    padding: 10px;
+    padding: 5px;
   }
 
   .canvas-container {
-    height: 300px; /* Smaller height on smaller screens */
+    height: 200px; /* Further reduce height for very small screens */
   }
 }
